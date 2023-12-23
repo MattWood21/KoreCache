@@ -33,7 +33,7 @@ namespace Korecache_IntegrationTests
                 }
             }
 
-            throw new InvalidDataException($@"Invalid API key configuration for integration testing");
+            throw new InvalidDataException($@"Invalid API key configuration for integration testing. Check the Integration tests section of the README for information on running the integration tests");
         }
     }
 }
