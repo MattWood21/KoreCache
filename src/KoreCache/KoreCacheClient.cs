@@ -13,18 +13,11 @@ namespace KoreCache
         private string _koreCacheEndpoint;
         public string KoreCacheEndpoint => _koreCacheEndpoint;
 
-        public KoreCacheClient(Configuration configuration, string koreToolsEnvironment = null)
-        {
-            _configuration = configuration;
-            _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri(koreToolsEnvironment ?? "https://prod.us-west-1.kore-tools.com");
-        }
-
-        public KoreCacheClient(Configuration configuration, HttpClient httpClient, string koreToolsEnvironment = null)
+        public KoreCacheClient(Configuration configuration, HttpClient httpClient)
         {
             _configuration = configuration;
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri(koreToolsEnvironment ?? "https://prod.us-west-1.kore-tools.com");
+            _httpClient.BaseAddress = new Uri(configuration.KoreToolsEnvironment);
         }
 
         #region internal handling

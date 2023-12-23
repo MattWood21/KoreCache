@@ -15,7 +15,7 @@ namespace Korecache_IntegrationTests
         {
             var apiKey = TestSetup.GetApiKey();
             var config = new Configuration(apiKey);
-            _client = new KoreCacheClient(config);
+            _client = new KoreCacheClient(config, new HttpClient());
         }
 
         [TestMethod]
