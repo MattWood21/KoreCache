@@ -93,6 +93,8 @@ namespace Korecache_IntegrationTests
             Assert.IsTrue(getKeyResult.Success);
             Assert.IsTrue(getKeyResult.Result.Value == keyValue);
             Assert.IsTrue(getKeyResult.Result.BucketId == bucketResult.Result.Id);
+            var deletedKeyResult = _client.ExpireKey(bucketResult.Result.Id, keyName).Result;
+            Assert.IsTrue(deletedKeyResult.Success);
             var deletedBucket = _client.DeleteBucket(bucketResult.Result.Id).Result;
             Assert.IsTrue(deletedBucket.Success);
         }
